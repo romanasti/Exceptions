@@ -4,20 +4,30 @@ import java.util.Arrays;
 
 public class h1 {
     public static void main(String[] args) {
+        // Task 1
         System.out.println(divide(10, 0));
         System.out.println(getArrayElement(new int[10]));
         System.out.println(getArrayLen(new int[-1]));
+        
+        // Task 2
+        // System.out.println(sum2d(new String[10][])); NullPointerException: Cannot load from object array because "arr[i]" is null
+        // System.out.println(sum2d(new String[10][10])); Cannot parse null string
+        // System.out.println(sum2d(new String[][]{{"1"},{"2"}})); ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
 
+        // Task 3
         System.out.println(Arrays.toString(differenceArrays(
-                new int[] { 1, 2, 3, 4, 5 },
-                new int[] { -1, -2, -3, -4, -5 })));
-            // new int[] { -1, -2, -3, -4, -5, -6 }))); RuntimeException: Arrays are not equal
-        System.out.println(Arrays.toString(quotientArrays(
-            new int[] { 1, 2, 3, 4, 5 },
-            new int[] { -1, -2, -3, -4, -5 })));
-            // new int[] { -1, -2, -3, -4, -5, -6 }))); RuntimeException: Arrays are not equal
-            // new int[] { 0, -2, -3, -4, -5 }))); RuntimeException: You cannot divide by zero
+        new int[] { 1, 2, 3, 4, 5 },
+        new int[] { -1, -2, -3, -4, -5 })));
+        // new int[] { -1, -2, -3, -4, -5, -6 }))); RuntimeException: Arrays are not equal
 
+        // Task 4
+        System.out.println(Arrays.toString(quotientArrays(
+        new int[] { 1, 2, 3, 4, 5 },
+        new int[] { -1, -2, -3, -4, -5 })));
+        // new int[] { -1, -2, -3, -4, -5, -6 }))); RuntimeException: Arrays are not
+        // equal
+        // new int[] { 0, -2, -3, -4, -5 }))); RuntimeException: You cannot divide by
+        // zero
     }
 
     // Task 1
@@ -33,6 +43,21 @@ public class h1 {
 
     public static int getArrayElement(int[] array) {
         return array[100];
+    }
+
+    // Task 2
+    // Look at the code (attached to the lesson materials),
+    // think and write how many different types of exceptions you can get here?
+
+    public static int sum2d(String[][] arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < 5; j++) {
+                int val = Integer.parseInt(arr[i][j]);
+                sum += val;
+            }
+        }
+        return sum;
     }
 
     // Task 3
@@ -67,11 +92,10 @@ public class h1 {
         for (int i = 0; i < result.length; i++) {
             if (array2[i] == 0) {
                 throw new RuntimeException("You cannot divide by zero");
-             }
+            }
             result[i] = array1[i] / array2[i];
         }
         return result;
     }
-
 
 }
