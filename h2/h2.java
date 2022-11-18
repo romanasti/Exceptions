@@ -12,6 +12,16 @@ public class h2 {
             System.out.println("Your input is incorrect!\nPlease try again:");
             System.out.println("You entered --> " + FractionNumber());
         }
+
+        // Task 2
+            try {
+            int[] intArray = new int [10];
+            int d = 0;
+            double catchedRes1 = intArray[8] / d;
+            System.out.println("catchedRes1 = " + catchedRes1);
+        } catch (ArithmeticException e) {
+            System.out.println("Catching exception: " + e);
+        }
     }
 
     // Task 1
@@ -23,4 +33,6 @@ public class h2 {
         Scanner x = new Scanner(System.in);
         return x.nextFloat();
     }
-}
+
+}   
+
